@@ -8,5 +8,8 @@ class Guests
     @guest_money = guest_money
   end
 
-
+  def reduce_money(entry_fee)
+    @guest_money -= entry_fee
+  end
+  
 end

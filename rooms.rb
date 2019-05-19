@@ -1,17 +1,18 @@
 class Rooms
 
-  attr_reader :room_name, :capacity
+  attr_reader :room_name, :capacity, :entry_fee
   attr_accessor :guest, :song
 
-  def initialize(room_name,guest,song,capacity)
+  def initialize(room_name,guest,song,capacity,entry_fee)
     @room_name = room_name
     @guest = guest
     @song = song
     @capacity = capacity
+    @entry_fee = entry_fee
   end
 
-  def guest_check_in(guest_name, capacity)
-    if @guest.length >= @capacity
+  def guest_check_in(guest_name, capacity,entry_fee,guest_money)
+    if @guest.length >= @capacity # && guest_money >= entry_fee
       return
     else
       @guest.push(guest_name)
