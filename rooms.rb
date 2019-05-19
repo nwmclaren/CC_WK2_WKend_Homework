@@ -12,7 +12,7 @@ class Rooms
   end
 
   def guest_check_in(guest_name, capacity,entry_fee,guest_money)
-    if @guest.length >= @capacity # && guest_money >= entry_fee
+    if @guest.length >= @capacity
       return
     else
       @guest.push(guest_name)
@@ -20,15 +20,17 @@ class Rooms
   end
 
   def guest_check_out(guest_name)
-    # for guest in @guest
-    #   guest.delete if guest == guest_name
-    # end
     @guest.delete(guest_name)
-#    @guest.each {|guest| guest == "Neil"}
   end
 
   def add_song(song_name)
       @song.push(song_name)
+  end
+
+  def favourite_song_check(fav_song)
+    if @song.include?(fav_song)
+      return "Whoo!"
+    end
   end
 
 end

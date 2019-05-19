@@ -5,7 +5,7 @@ require_relative('../guests')
 class TestGuest < Minitest::Test
 
   def setup
-    @guests_name = Guests.new("Neil", 50)
+    @guests_name = Guests.new("Neil", 50, "Perfect Day")
   end
 
   def test_guest_name

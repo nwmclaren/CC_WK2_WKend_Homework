@@ -10,9 +10,9 @@ def setup
   @song_1 = Songs.new("Changes")
   @song_2 = Songs.new("Perfect Day")
   @songs = [@song_1,@song_2]
-  @guest_1 = Guests.new("Neil", 50)
-  @guest_2 = Guests.new("Bob", 10)
-  @guest_3 = Guests.new("Charles", 10)
+  @guest_1 = Guests.new("Neil", 50, "Perfect Day")
+  @guest_2 = Guests.new("Bob", 10, "Enjoy the Silence")
+  @guest_3 = Guests.new("Charles", 10, "Stop")
   @guests = [@guest_1,@guest_2]
   @rooms = Rooms.new("1-2",@guests,@songs,3, 20)
   @rooms_1 = Rooms.new("1-2",@guests,@songs,2, 20)
@@ -46,9 +46,8 @@ def test_guest_money_reduced
   assert_equal(30, @guest_1.reduce_money(@rooms.entry_fee))
 end
 
-
-# def test_guest_check_in
-#   @rooms.guest_check_in
-#   assert_equal(true,@rooms)
+def test_favourite_song
+ assert_equal("Whoo!",@rooms.favourite_song_check(@guest_1.favourite_song))
+end
 
 end
